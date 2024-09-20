@@ -115,3 +115,16 @@ if uploaded_file is not None:
                 plt.legend()
                 st.pyplot(plt)
 
+                # Шаг 5. Скачать график
+                
+                buf = BytesIO()
+                plt.savefig(buf, format='png')
+                buf.seek(0)
+                
+                st.download_button(
+                    label="Скачать график",
+                    data=buf,
+                    file_name="logistic_regression_plot.png",
+                    mime="image/png"
+                    )
+
